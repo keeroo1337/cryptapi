@@ -133,7 +133,5 @@ for i in j:
 			)
 restable  += '</table>'
 print('<br><br>'+restable)
-
-
 print("</body>")
 print("</html>")
