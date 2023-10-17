@@ -94,17 +94,6 @@ for i in j:
 		averageprice = averageprice / float(counter)
 	index = abs((sellwidth - buywidth) * volume)
 	volume = float(averageprice) * float(quantity)
-	# res = ('<br><br>'
-	#	+ '<b>' + i + '</b>'
-	#	+ '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Trades</i>: ' + str(tradecounter)
-	#	+ '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Buys</i>: ' + str(buycounter)
-	#	+ '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Sells</i>: ' + str(sellcounter)
-	#	+ '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Volume</i>: ' + str("%.2f" % volume)
-	#	+ '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Buy Width</i>: ' + str("%.2f" % buywidth)
-	#	+ '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Sell Width</i>: ' + str("%.2f" % sellwidth)
-	#	+ '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Width Average</i>: ' + str("%.2f" % abs(sellwidth + buywidth)/2)
-	#	+ '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Index</i>: ' + str("%.6f" % index))
-	# res = '<br><br>'
 	bool = 0
 	if tradecounter > tradenum and index > threshold:
 		if not i.endswith('PERP'):
