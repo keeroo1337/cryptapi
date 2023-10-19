@@ -2,14 +2,13 @@ $(document).ready(function(){
 	$.post("/cgi-bin/main.py", function( data ) {
 	  	$("#content").append(data);
 
-		$( "#main" ).css("display", "table");
-		$( "#main" ).css("table-layout", "fixed");
-		$( "#main" ).css("border-spacing", "0px");
+		$(".tablesorter").css("display", "table");
+		$(".tablesorter").css("table-layout", "fixed");
+		$(".tablesorter").css("border-spacing", "0px");
+		$(".tablesorter").tablesorter();
+		$(".tablesorter").css("width", "300px");
+		$(".tablesorter").css("display", "table-cell");
 
-		$("#main").tablesorter();
-
-		$("#main").css("width", "300px");
-		$("#main").css("display", "table-cell");
 
 	});
 
