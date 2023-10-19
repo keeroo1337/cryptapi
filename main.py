@@ -29,8 +29,7 @@ print("index calculation is abs((sellwidth - buywidth) * volume)")
 
 j = json.loads(res_body)
 
-restable = ('<table>' +
-	'<tr>' +
+restableheader = (	'<thead><tr>' +
 	'<th><b>Currency</b></th>' +
 	'<th><b>Trades</b></th>' +
 	'<th><b>Buys</b></th>' +
@@ -42,8 +41,16 @@ restable = ('<table>' +
 	'<th><b>Sell Width</b></th>' +
 	'<th><b>Width Average</b></th>' +
 	'<th><b>Index</b></th>' +
-	'</tr>'
+	'</tr></thead><tbody>'
 	)
+
+restable_BTC = ('<table id="tableBTC" class="tablesorter">' + restableheader)
+
+restable_ETH = ('<table id="tableETH" class="tablesorter">' + restableheader)
+
+restable_USDC = ('<table id="tableUSDC" class="tablesorter">' + restableheader)
+
+restable_USDT = ('<table id="tableUSDT" class="tablesorter">' + restableheader)
 
 for i in j:
 	a = j[i]
@@ -95,6 +102,7 @@ for i in j:
 	index = abs((sellwidth - buywidth) * volume)
 	volume = float(averageprice) * float(quantity)
 	bool = 0
+	restable = ''
 	if tradecounter > tradenum and index > threshold:
 		if not i.endswith('PERP'):
 			bool=1
@@ -106,7 +114,7 @@ for i in j:
 		or i.endswith('AVAXUSDT')):
 		bool = 1
 	if bool==1:
-		restable  += ('<tr>'
+		restable = ('<tr>'
 			+ '<td align="left">' + i + '</td>'
 			+ '<td align="right">' + str(tradecounter) + '</td>'
 			+ '<td align="right">' + str(buycounter) + '</td>'
@@ -116,11 +124,26 @@ for i in j:
 			+ '<td align="right">' + str("%.2f" % volume) + '</td>'
 			+ '<td align="right">' + str("%.2f" % buywidth) + '</td>'
 			+ '<td align="right">' + str("%.2f" % sellwidth) + '</td>'
-			+ '<td align="right">' + str("%.2f" % (abs(sellwidth + buywidth)/2)) + '</td>'
+			+ '<td align="right">' + str("%.2f" % (abs(sellwidth + buywidth) / 2)) + '</td>'
 			+ '<td align="right">' + str("%.2f" % index) + '</td>'
 			+ '</tr>'
 			)
-restable  += '</table>'
-print('<br><br>'+restable)
+	if i.endswith('BTC'):
+		restable_BTC += restable
+	elif i.endswith('ETH'):
+		restable_ETH += restable
+	elif i.endswith('USDC'):
+		restable_USDC += restable
+	elif i.endswith('USDT'):
+		restable_USDT += restable
+
+restable_BTC += '</tbody></table>'
+restable_ETH += '</tbody></table>'
+restable_USDC += '</tbody></table>'
+restable_USDT += '</tbody></table>'
+print('<br><br>'+restable_BTC)
+print('<br><br>'+restable_ETH)
+print('<br><br>'+restable_USDC)
+print('<br><br>'+restable_USDT)
 print("</body>")
 print("</html>")
