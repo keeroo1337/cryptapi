@@ -52,6 +52,8 @@ restable_USDC = ('<table id="tableUSDC" class="tablesorter">' + restableheader)
 
 restable_USDT = ('<table id="tableUSDT" class="tablesorter">' + restableheader)
 
+restable_PERP = ('<table id="tablePERP" class="tablesorter">' + restableheader)
+
 for i in j:
 	a = j[i]
 	tradecounter = 0
@@ -104,8 +106,7 @@ for i in j:
 	bool = 0
 	restable = ''
 	if tradecounter > tradenum and index > threshold:
-		if not i.endswith('PERP'):
-			bool=1
+		bool=1
 	elif (
 		i.endswith('TRXUSDT')
 		or i.endswith('XTZUSDT')
@@ -136,14 +137,19 @@ for i in j:
 		restable_USDC += restable
 	elif i.endswith('USDT'):
 		restable_USDT += restable
+	elif i.endswith('PERP'):
+		restable_PERP += restable
+
 
 restable_BTC += '</tbody></table>'
 restable_ETH += '</tbody></table>'
 restable_USDC += '</tbody></table>'
 restable_USDT += '</tbody></table>'
+restable_PERP += '</tbody></table>'
 print('<br><br>'+restable_BTC)
 print('<br><br>'+restable_ETH)
 print('<br><br>'+restable_USDC)
 print('<br><br>'+restable_USDT)
+print('<br><br>'+restable_PERP)
 print("</body>")
 print("</html>")
