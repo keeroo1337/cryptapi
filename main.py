@@ -111,7 +111,7 @@ for i in j:
 		i.endswith('TRXUSDT')
 		or i.endswith('XTZUSDT')
 		or i.endswith('REEFUSDT')
-		or i.endswith('CHSBBTC')
+		or i.endswith('BORGBTC')
 		or i.endswith('AVAXUSDT')):
 		bool = 1
 	if bool==1:
