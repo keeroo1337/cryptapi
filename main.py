@@ -22,7 +22,7 @@ res = urllib.request.urlopen(url)
 res_body = res.read()
 
 tradenum = 250
-print("trade number threshold is 250 during the last hour (except CHSB/AVAX/TRX/REEF)<br>")
+print("trade number threshold is 250 during the last hour (except BORG/AVAX/TRX/REEF)<br>")
 threshold = 0.0
 
 print("index calculation is abs((sellwidth - buywidth) * volume)")
