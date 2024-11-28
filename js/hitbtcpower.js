@@ -11,5 +11,17 @@ $(document).ready(function(){
 
 
 	});
+	$.post("/cgi-bin/brc.py", function( data ) {
+		$("#bitvavo").append(data);
+
+	  $(".tablesorter").css("display", "table");
+	  $(".tablesorter").css("table-layout", "fixed");
+	  $(".tablesorter").css("border-spacing", "0px");
+	  $(".tablesorter").tablesorter();
+	  $(".tablesorter").css("width", "300px");
+	  $(".tablesorter").css("display", "table-cell");
+
+
+  });	
 
 });
